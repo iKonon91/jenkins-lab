@@ -1,6 +1,10 @@
 pipeline {
     agent any
     
+    options {
+        ansiColor('xterm')
+    }
+    
     environment {
         DOCKERHUB_USER = 'ikonon91'
         IMAGE_NAME = 'jenkins-lab-app'
@@ -15,9 +19,10 @@ pipeline {
 
         stage('Custom Test Stage') {
             steps {
-                echo '=== ЗАПУСК КАСТОМНОГО ТЕСТУ ДЛЯ ОЛЕГА ==='
-                echo 'Перевірка синтаксису index.html... Пройдено!'
-                echo '========================================='
+                // \u001B[32m робить текст зеленим, \u001B[0m скидає колір назад
+                echo "\u001B[32m=== ЗАПУСК КАСТОМНОГО ТЕСТУ ДЛЯ ОЛЕГА ===\u001B[0m"
+                echo "\u001B[32mПеревірка синтаксису index.html... Пройдено!\u001B[0m"
+                echo "\u001B[32m=========================================\u001B[0m"
             }
         }
 
@@ -46,4 +51,4 @@ pipeline {
             }
         }
     }
-}
+}     

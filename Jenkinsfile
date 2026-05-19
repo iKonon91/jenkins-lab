@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Checkout') {
-            steps { echo 'Очищення та підготовка локальних файлів...' }
+            steps {
+                echo 'Очищення та підготовка локальних файлів...'
+            }
         }
         stage('Custom Test Stage') {
             steps {
@@ -12,7 +14,9 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            steps { sh 'docker build -t my-custom-web-app:latest .' }
+            steps {
+                sh 'docker build -t my-custom-web-app:latest .'
+            }
         }
         stage('Deploy Application') {
             steps {
